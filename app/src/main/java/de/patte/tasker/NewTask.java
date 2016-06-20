@@ -33,7 +33,7 @@ public class NewTask extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Task task = new Task(taskTitle.getText().toString(), "", 0);
+                Task task = new Task(taskTitle.getText().toString(), 0);
                 taskDbHelper.addTask(task);
                 Intent intent = new Intent(NewTask.this, MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

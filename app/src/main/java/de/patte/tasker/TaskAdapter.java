@@ -19,7 +19,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
     private TaskDbHelper dbHelper;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView title, dueTo;
+        public TextView title, description, dueTo;
         public CheckBox isDone;
 
         public MyViewHolder(View view) {

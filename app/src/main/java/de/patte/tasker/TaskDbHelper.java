@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Patte on 19.06.16.
+ * Created by Patte on 19.06.16
  */
 public class TaskDbHelper extends SQLiteOpenHelper {
 
@@ -23,7 +23,6 @@ public class TaskDbHelper extends SQLiteOpenHelper {
     private static final String TASK_ID = "id";
     private static final String TASK_TITLE = "title";
     private static final String TASK_ISDONE = "isDone";
-    private static final String TASK_DESCRIPTION = "description";
 
     public TaskDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -31,7 +30,7 @@ public class TaskDbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_TASKS_TABLE = "CREATE TABLE " + TABLE_TASKS + "(" + TASK_ID + " INTEGER PRIMARY KEY," + TASK_TITLE + " TEXT," + TASK_DESCRIPTION + " TEXT, " + TASK_ISDONE + " INTEGER)";
+        String CREATE_TASKS_TABLE = "CREATE TABLE " + TABLE_TASKS + "(" + TASK_ID + " INTEGER PRIMARY KEY," + TASK_TITLE + " TEXT," + TASK_ISDONE + " INTEGER)";
         db.execSQL(CREATE_TASKS_TABLE);
     }
 
@@ -46,7 +45,6 @@ public class TaskDbHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
         values.put(TASK_TITLE, task.getTitle());
-        values.put(TASK_DESCRIPTION, task.getDescription());
         values.put(TASK_ISDONE, task.isDone());
 
         db.insert(TABLE_TASKS, null, values);
@@ -59,7 +57,6 @@ public class TaskDbHelper extends SQLiteOpenHelper {
         String filter = TASK_ID + "=" + task.getId();
 
         values.put(TASK_TITLE, task.getTitle());
-        values.put(TASK_DESCRIPTION, task.getDescription());
         Log.d(TAG, "updateTask: Task is Done? " + task.isDone());
         values.put(TASK_ISDONE, task.isDone());
 
@@ -91,7 +88,6 @@ public class TaskDbHelper extends SQLiteOpenHelper {
                 Task task = new Task();
                 task.setId(Integer.parseInt(cursor.getString(0)));
                 task.setTitle(cursor.getString(1));
-                task.setDescription(cursor.getString(2));
                 task.setDone(Integer.parseInt(cursor.getString(3)));
 
                 taskList.add(task);

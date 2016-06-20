@@ -7,16 +7,14 @@ public class Task {
 
     private int id;
     private String title;
-    private String description;
     private int isDone;
 
     public Task() {
 
     }
 
-    public Task(String title, String description, int isDone) {
+    public Task(String title, int isDone) {
         this.title = title;
-        this.description = description;
         this.isDone = isDone;
     }
 
@@ -34,14 +32,6 @@ public class Task {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public int isDone() {

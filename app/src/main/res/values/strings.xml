@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Tasker</string>
+    <string name="task_title">Title</string>
+    <string name="btn_save_task">Create task</string>
+</resources>
